@@ -5,6 +5,9 @@ const app = Vue.createApp({
 
         return {
             tasks: [
+                "ciao",
+                "hello",
+                "hi",
             ],
 
             newTask: ""
@@ -13,6 +16,17 @@ const app = Vue.createApp({
 
     methods: {
 
+        addTask(){
+            console.log(this.newTask);
+
+            const newString = this.newTask;
+
+            this.tasks.push(newString);
+        },
+
+        removeTask(i) {
+            this.tasks.splice(i, 1);
+        }
     }
 });
 

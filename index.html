@@ -24,20 +24,38 @@
         <div class="container">
             <!-- add task -->
             <div class="input-group input-group-lg my-3">
-                <input type="text" class="form-control" 
-                placeholder="new task" 
-                aria-label="new task" 
-                aria-describedby="button-addon2">
-                <button class="btn btn-outline-primary" type="button" id="button-addon2">Add task</button>
+                <input 
+                    type="text" 
+                    class="form-control" 
+                    placeholder="new task" 
+                    aria-label="new task" 
+                    aria-describedby="button-addon2"
+                    v-model="newTask"
+                >
+
+
+                <button 
+                    class="btn btn-outline-primary" 
+                    type="button" 
+                    id="button-addon2"
+                    @click="addTask()">
+                    Add task
+                </button>
             </div>
 
             <!-- list -->
             <h1>Lista delle tasks</h1>
             <ol class="list-group list-group-numbered">
-                <li class="list-group-item d-flex align-items-center">
-                    A list item
+                <li class="list-group-item d-flex align-items-center"
+                    v-for="(task, index) in tasks">
+                    {{task}}
 
-                    <span class="badge bg-danger rounded-pill ms-auto">X</span>
+
+                    <span 
+                        class="badge bg-danger rounded-pill ms-auto"
+                        @click="removeTask(index)">
+                        X
+                    </span>
                 </li>
               </ol>
         </div>
