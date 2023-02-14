@@ -5,12 +5,27 @@ const app = Vue.createApp({
 
         return {
             tasks: [
-                "ciao",
-                "hello",
-                "hi",
+                {
+                    title: "ciao",
+                    todo: true
+                },
+                {
+                    title: "hi",
+                    todo: true
+                },
+                {
+                    title: "hello",
+                    todo: true
+                }
+                
             ],
 
-            newTask: ""
+            newTask: [
+                {
+                    title: "",
+                    todo: true
+                },
+            ]
         }
     },
 
@@ -19,7 +34,7 @@ const app = Vue.createApp({
         addTask(){
             console.log(this.newTask);
 
-            const newString = this.newTask;
+            const newString = this.newTask.title;
 
             this.tasks.push(newString);
         },
