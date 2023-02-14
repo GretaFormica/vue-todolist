@@ -22,8 +22,7 @@ const app = Vue.createApp({
 
             newTask: [
                 {
-                    title: "",
-                    todo: true
+                    title: ""
                 },
             ]
         }
@@ -32,11 +31,14 @@ const app = Vue.createApp({
     methods: {
 
         addTask(){
-            console.log(this.newTask);
+            console.log(this.newTask.title);
 
             const newString = this.newTask.title;
 
-            this.tasks.push(newString);
+            this.tasks.push({
+                title: newString,
+                todo: true
+            });
         },
 
         removeTask(i) {
